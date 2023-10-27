@@ -5,6 +5,6 @@ const nextConfig = {
       origin: '*',
     },
     // Other Next.js configuration options go here
-  };
+};
   
   module.exports = nextConfig;

@@ -84,7 +84,14 @@ const updateNote = async (id, data) => {
 
 const getNoteById = async (id) => {
     try {
-        const response = await fetch(`${API_URL}/api/notes/getNoteById/${id}`);
+        const response = await fetch(`${API_URL}/api/notes/notes/${id}` , {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            
+        });
+
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
