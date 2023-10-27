@@ -7,7 +7,6 @@ import EditButton from './Buttons/editButton';
 
 const AllNotes = ({ token }) => {
   const [notes, setNotes] = useState([]);
-  const [userId, setUserId] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -46,7 +45,7 @@ const AllNotes = ({ token }) => {
   const notesWithKeys = notes.map((note, index) => (
     <li key={index} className="mb-2 p-2 rounded-lg shadow-sm bg-white">
       <p className="text-gray-800 text-lg">{note.title}</p>
-      <p className="text-gray-600 font-black">{note.tags}</p>
+      <p className="text-gray-600 font-black">{note.tags.join(', ')}</p>
       <DeleteButton noteId={note._id} token={token} onDelete={handleDeleteNote} />
       <EditButton noteId={note._id} />
 

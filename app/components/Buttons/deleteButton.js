@@ -6,7 +6,6 @@ import { deleteNote } from '@/app/utils/notes/api';
 const DeleteButton = ({ noteId, token, onDelete }) => {
     const [isDeleting, setIsDeleting] = useState(false);
   
-    console.log('noteId:', noteId);
   
     const handleDelete = async () => {
       if (!noteId) {

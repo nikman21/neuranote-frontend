@@ -9,8 +9,9 @@ import TextEditor from '../../components/textEditor';
 
 function CreateNote() {
     const [title, setTitle] = useState('');
-    const [tags, setTags] = useState('');
+    const [tags, setTags] = useState([]);
     const [content, setContent] = useState('');
+    const [newTag, setNewTag] = useState('');
 
     const router = useRouter();
 
@@ -50,7 +51,7 @@ function CreateNote() {
             if (response) {
                 router.push('/notes'); // Redirect to the '/notes' page
                 setTitle('');
-                setTags('');
+                setTags([]);
                 setContent('');
             } else {
                 console.log('Note creation failed.');
@@ -60,40 +61,49 @@ function CreateNote() {
         }
     };
 
+    const extractTagsFromContent = (content) => {
+        const tags = [];
+        const tagRegex = /\[(.*?)\]/g;
+        const matches = content.match(tagRegex);
+
+        if (matches) {
+            for (const match of matches) {
+                tags.push(match.slice(1, -1));
+            }
+        }
+        return tags;
+      };
+
+    useEffect(() => {
+        const tags = extractTagsFromContent(content);
+        setTags(tags);
+      }, [content]);
+
+
+
+
     return (
-        <div className="max-w-3xl mx-auto mt-3">
+        <div className="w-full">
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
                     saveEntry();
                 }}
             >
-                <div className="mb-4">
-                    <label htmlFor="title" className="block text-gray-600">Title</label>
+                <div>
                     <input
                         type="text"
+                        placeholder='Title'
                         id="title"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className="w-full border border-gray-300 p-2 rounded"
+                        className="w-full border border-gray-300 p-2"
                         required
-                    />
-                </div>
-
-                <div className="">
-                    <label htmlFor="tags" className="block text-gray-600">Tags</label>
-                    <input
-                        type="text"
-                        id="tags"
-                        value={tags}
-                        onChange={(e) => setTags(e.target.value)}
-                        className="w-full border border-gray-300 p-2 rounded"
                     />
                 </div>
 
                 
                     <div className="mb-4">
-                        <label htmlFor="content" className="block text-gray-600">Content</label>
                         <TextEditor value={content} onChange={setContent} />
                     </div>
 
