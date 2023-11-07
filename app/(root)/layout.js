@@ -5,7 +5,7 @@ import Topbar from '../components/DashboardComponents/topBar';
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'My Productivity App',
+  title: 'NeuroNote',
   description: 'Productivity app built for me',
 }
 

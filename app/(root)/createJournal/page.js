@@ -3,10 +3,10 @@
 import jwt_decode from 'jwt-decode';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { createNote } from '../../utils/notes/api';
+import { createJournal } from '../../utils/journals/api'; // Import the createJournal function
 import TextEditor from '../../components/textEditor';
 
-function CreateNote() {
+function CreateJournal() {
   const [title, setTitle] = useState('');
   const [tags, setTags] = useState([]);
   const [content, setContent] = useState('');
@@ -34,26 +34,26 @@ function CreateNote() {
     const decodedToken = jwt_decode(token);
     const userId = decodedToken.id;
 
-    const noteEntry = {
+    const journalEntry = {
       userId,
       title,
       tags,
       content,
     };
 
-    console.log('Note entry: ', noteEntry);
+    console.log('Journal entry: ', journalEntry);
 
     try {
-      console.log('Creating note...');
-      const response = await createNote(noteEntry, token);
-      console.log('Note created successfully!');
+      console.log('Creating journal...');
+      const response = await createJournal(journalEntry, token); // Use createJournal function
+      console.log('Journal created successfully!');
       if (response) {
-        router.push('/notes'); // Redirect to the '/notes' page
+        router.push('/journals'); // Redirect to the '/journals' page
         setTitle('');
         setTags([]);
         setContent('');
       } else {
-        console.log('Note creation failed.');
+        console.log('Journal creation failed.');
       }
     } catch (error) {
       console.error(error);
@@ -105,14 +105,13 @@ function CreateNote() {
 
         <button
           type="submit"
-          className="bg-blue-500 hover:bg-blue-700 text-white rounded py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="bg-blue-500 hover.bg-blue-700 text-white rounded py-2 px-4 focus:outline-none focus:ring-2 focus:ring-blue-500"
         >
-          Save Note
+          Save Journal
         </button>
       </form>
     </div>
   );
 }
 
-export default CreateNote;
-
+export default CreateJournal;

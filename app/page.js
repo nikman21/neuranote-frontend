@@ -1,7 +1,12 @@
 'use client';
 
 import Head from 'next/head';
-import Link from 'next/link';
+import Navbar from './components/HomeComponents/navbar/navbar';
+import Hero from './components/HomeComponents/hero';
+import Features from './components/HomeComponents/feature';
+import HowItWorks from './components/HomeComponents/howItWorks';
+import CTASection from './components/HomeComponents/CTASection';
+import Footer from './components/HomeComponents/Footer';
 
 
 
@@ -13,16 +18,12 @@ export default function Home() {
       <Head>
         <title>Productivity App</title>
       </Head>
-      <main className="flex flex-col justify-center items-center">
-        <h1 className='text-white mb-5'>Welcome </h1>
-
-        <div className="flex flex-row justify-center items-center">
-          <button className="bg-white text-black rounded-md p-2 m-2"><Link href='/login'>Login</Link></button>
-          <button className="bg-white text-black rounded-md p-2 m-2"><Link href='/signup'>Sign Up</Link></button>
-        </div>
-        
-        
-      </main>
+        <Navbar />
+        <Hero />
+        <Features />
+        <HowItWorks />
+        <CTASection />
+        <Footer />
     </div>
   );
 }

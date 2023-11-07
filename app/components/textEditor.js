@@ -45,6 +45,7 @@ const TextEditor = (props) => {
   enableSnippets: false,
   showLineNumbers: true,
   tabSize: 2,
+  wrap: true,
   }}/>
     
   );

@@ -2,8 +2,8 @@
 import jwt_decode from 'jwt-decode';
 import { useState, useEffect } from 'react';
 import { getUserNotes } from '../utils/users/api';
-import DeleteButton from './Buttons/deleteButton';
-import EditButton from './Buttons/editButton';
+import DeleteButton from './Buttons/NoteButtons/deleteButton';
+import EditButton from './Buttons/NoteButtons/editButton';
 
 const AllNotes = ({ token }) => {
   const [notes, setNotes] = useState([]);
@@ -43,21 +43,26 @@ const AllNotes = ({ token }) => {
 
   // Add a key prop to each element in the notes array
   const notesWithKeys = notes.map((note, index) => (
-    <li key={index} className="mb-2 p-2 rounded-lg shadow-sm bg-white">
-      <p className="text-gray-800 text-lg">{note.title}</p>
-      <p className="text-gray-600 font-black">{note.tags.join(', ')}</p>
-      <DeleteButton noteId={note._id} token={token} onDelete={handleDeleteNote} />
-      <EditButton noteId={note._id} />
+    <li key={index} className="bg-gradient-to-r from-blue-500 to-blue-800  p-4 rounded-lg shadow-md mb-4">
+       <h2 className="text-xl font-semibold text-gray-900">{note.title}</h2>
+        <p className="text-sm text-gray-600 font-bold mb-2">{note.tags.join(', ')}</p>
+        <div className="flex items-center space-x-4">
+          <EditButton noteId={note._id} />
+          <DeleteButton noteId={note._id} token={token} onDelete={handleDeleteNote} />
+        </div>
 
     </li>
   ));
 
   return (
-    <div className="bg-gray-100 p-6 rounded-lg shadow-md">
-      <h1 className="text-2xl font-semibold mb-4">All Notes</h1>
-      <ul>
-        {notesWithKeys}
-      </ul>
+    <div className="min-h-screen p-6">
+      <div className="max-w-3xl mx-auto">
+        <h1 className="text-4xl font-extrabold text-white mb-4">All Notes</h1>
+        <ul>
+          {notesWithKeys}
+        </ul>
+
+      </div>
     </div>
   );
 };
