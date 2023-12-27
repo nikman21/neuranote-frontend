@@ -16,7 +16,7 @@
     "@mui/material": "^5.14.14",
     "ace-builds": "^1.31.0",
     "autoprefixer": "10.4.16",
-    "axios": "^1.5.0",
+    "axios": "^1.6.3",
     "codemirror": "^5.65.15",
     "jwt-decode": "^3.1.2",
     "next": "13.5.2",
