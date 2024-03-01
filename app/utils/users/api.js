@@ -1,7 +1,7 @@
 
 const getUserById = async (id) => {
     try {
-        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/users/${id}`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/${id}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
@@ -15,7 +15,7 @@ const getUserById = async (id) => {
 
 const getUserNotes = async (id, token) => {
     try {
-        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/users/notes/${id}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/notes/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

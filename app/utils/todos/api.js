@@ -2,7 +2,7 @@ const API_URL = 'http://localhost:3001';
 
 const createTodo = async (data, token) => {
     try {
-        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/todos/createTodo`,{
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/todos/createTodo`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const createTodo = async (data, token) => {
 
 const getTodos = async () => {  
     try {
-        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/todos/todos`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/todos/todos`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const getTodos = async () => {
 const deleteTodo = async (id) => {
 
     try {
-        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/todos/deleteTodo/${id}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/todos/deleteTodo/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ const deleteTodo = async (id) => {
 
 const updateTodo = async (id, data) => {
     try {
-        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/todos/updateTodo/${id}`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/todos/updateTodo/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ const updateTodo = async (id, data) => {
 
 const getTodoById = async (id) => {
     try {
-        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/todos/todos/${id}` , {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/todos/todos/${id}` , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
