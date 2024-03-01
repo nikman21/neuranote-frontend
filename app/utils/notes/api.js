@@ -2,7 +2,7 @@ const API_URL = 'http://localhost:3001';
 
 const createNote = async (data, token) => {
     try {
-        const response = await fetch(`${API_URL}/api/notes/createNote`,{
+        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/notes/createNote`,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ const createNote = async (data, token) => {
 
 const getNotes = async () => {  
     try {
-        const response = await fetch(`${API_URL}/api/notes/notes`, {
+        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/notes/notes`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const getNotes = async () => {
 const deleteNote = async (id) => {
 
     try {
-        const response = await fetch(`${API_URL}/api/notes/deleteNote/${id}`, {
+        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/notes/deleteNote/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ const deleteNote = async (id) => {
 
 const updateNote = async (id, data) => {
     try {
-        const response = await fetch(`${API_URL}/api/notes/updateNote/${id}`, {
+        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/notes/updateNote/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -84,7 +84,7 @@ const updateNote = async (id, data) => {
 
 const getNoteById = async (id) => {
     try {
-        const response = await fetch(`${API_URL}/api/notes/notes/${id}` , {
+        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/notes/notes/${id}` , {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'

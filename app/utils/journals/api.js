@@ -1,8 +1,8 @@
-const API_URL = 'http://localhost:3001';
+
 
 const createJournal = async (data, token) => {
   try {
-    const response = await fetch(`${API_URL}/api/journals/createJournal`, {
+    const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/journals/createJournal`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -24,7 +24,7 @@ const createJournal = async (data, token) => {
 
 const getJournals = async () => {
   try {
-    const response = await fetch(`${API_URL}/api/journals/journals`, {
+    const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/journals/journals`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const getJournals = async () => {
 
 const deleteJournal = async (id) => {
   try {
-    const response = await fetch(`${API_URL}/api/journals/deleteJournal/${id}`, {
+    const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/journals/deleteJournal/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -62,7 +62,7 @@ const deleteJournal = async (id) => {
 
 const updateJournal = async (id, data) => {
   try {
-    const response = await fetch(`${API_URL}/api/journals/updateJournal/${id}`, {
+    const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/journals/updateJournal/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -82,7 +82,7 @@ const updateJournal = async (id, data) => {
 
 const getJournalById = async (id) => {
   try {
-    const response = await fetch(`${API_URL}/api/journals/journals/${id}`, {
+    const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/journals/journals/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

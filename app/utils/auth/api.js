@@ -1,8 +1,8 @@
-const API_URL = 'http://localhost:3001';
+
 
 const loginUser = async (data) => {
     try {
-      const response = await fetch(`${API_URL}/api/auth/loginUser`, {
+      const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/auth/loginUser`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const loginUser = async (data) => {
 
   const signUp = async (data) => {
     try {
-        const response = await fetch(`${API_URL}/api/users/createUsers`, {
+        const response = await fetch(`${NEXT_PUBLIC_API_URL}/api/users/createUsers`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
