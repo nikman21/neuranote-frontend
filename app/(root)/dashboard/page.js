@@ -1,15 +1,36 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createRef } from 'react';
 import jwt_decode from 'jwt-decode';
 import Head from 'next/head';
 import Calendar from 'react-calendar';
+import { getTodos } from '../../utils/todos/api';
+import { useRouter } from 'next/navigation';
+import TodoWidget from '../../components/DashboardComponents/TodoWidget';
+import JournalWidget from '../../components/DashboardComponents/JournalWidget';
+import { Responsive, WidthProvider } from 'react-grid-layout';
+import QuickNoteWidget from '@/app/components/DashboardComponents/QuickNoteWidget';
 
 
+const ResponsiveGridLayout = WidthProvider(Responsive);
 
-export default function Home() {
-
+export default function Dashboard() {
   const [date, setDate] = useState(new Date());
   const [token, setToken] = useState('');
+  const [todos, setTodos] = useState([]);
+  const router = useRouter();
+
+
+  useEffect(() => {
+    if (token) {
+      getTodos(token)
+        .then((userTodos) => {
+          setTodos(userTodos);
+        })
+        .catch((error) => {
+          console.error('Error fetching user todos:', error);
+        });
+    }
+  }, [token]);
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
@@ -24,23 +45,36 @@ export default function Home() {
 
   const decodedToken = jwt_decode(token);
   const username = decodedToken.username;
+
   
-  console.log("username: ", username);
+
+  
+
 
   return (
-    <div className="h-screen">
+    <div className="h-screen ">
       <Head>
         <title>Productivity App</title>
       </Head>
-      <main className="flex flex-col justify-center items-center">
-        <h1 className='text-white mb-5'>Welcome {username} </h1>
-        <h2 className='text-white'>Today's date is: {date.toLocaleDateString()}</h2>
-        <Calendar className='text-white bg-blue-500 p-10 rounded-lg shadow-white shadow-sm'
-          onChange={setDate}
-          locale='en-US'
-          value={date}
-        />
-      </main>
+      <div className="flex flex-1">
+        <div className="w-full md:w-3/4 shadow-lg rounded-lg overflow-hidden">
+          <main className="p-4">
+            <h1 className="text-gray-800 text-3xl font-bold mb-5">Welcome {username}</h1>
+            <h2 className="text-gray-600 text-lg mb-3">Today's date is: {date.toLocaleDateString()}</h2>
+            <Calendar
+              className="bg-gray-200 p-10 rounded-lg shadow-lg"
+              onChange={setDate}
+              locale="en-US"
+              value={date}
+            />
+            <div className="mt-8 flex gap-10">
+              <TodoWidget token={token} allTodos={todos} router={router} />
+              <JournalWidget />
+            </div>
+            <QuickNoteWidget />
+          </main>
+        </div>
+      </div>
     </div>
   );
-};
+}

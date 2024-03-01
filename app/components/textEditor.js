@@ -10,15 +10,6 @@ const TextEditor = (props) => {
  
   const { onChange, value } = props;
 
-  // Get the first line of the content
-  const firstLine = value.split("\n")[0];
-
-  // Get the tags, if any
-  const tags = firstLine.match(/\[(.*?)\]/g);
-
-  // Set the title and tags state
-  const title = firstLine.replace(/\[(.*?)\]/g, "");
-  const tagsState = tags ? tags.map((tag) => tag.replace(/\[|\]/g, "")) : [];
 
 
   return (
