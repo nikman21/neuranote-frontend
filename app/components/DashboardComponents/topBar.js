@@ -9,7 +9,7 @@ const Topbar = () => {
   return (
     <nav className="topbar bg-secondary-blue">
       <Link href="/dashboard" className="flex items-center gap-4">
-        <p className='text-3xl text-white font-bold max-xs:hidden'>NeuroNote</p>
+        <p className='text-3xl text-white font-bold max-xs:hidden'>NeuraNote</p>
       </Link>
 
       <div className="flex items-center gap-1">
