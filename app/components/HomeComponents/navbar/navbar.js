@@ -16,7 +16,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center flex-grow">
             <Link href="/" className="flex-shrink-0">
-              <p className="text-white font-bold text-2xl">NeuroNote</p>
+              <p className="text-white font-bold text-2xl">NeuraNote</p>
             </Link>
             <div className="hidden md:block ml-auto">
               <div className="ml-10 flex items-baseline space-x-4">

@@ -15,7 +15,7 @@ function About() {
             <div className="bg-gray-900 rounded-lg p-6 shadow-xl">
               <h2 className="text-2xl font-semibold text-white mb-4">Our Mission</h2>
               <p className="text-gray-300">
-                At NeuroNote, we're on a mission to empower individuals and teams to unlock their full potential and boost productivity through innovative note-taking and productivity solutions.
+                At NeuraNote, we're on a mission to empower individuals and teams to unlock their full potential and boost productivity through innovative note-taking and productivity solutions.
               </p>
             </div>
             <div className="bg-gray-900 rounded-lg p-6 shadow-xl">
@@ -35,7 +35,7 @@ function About() {
           <div className="my-12 text-center bg-gray-900 p-6 rounded-lg shadow-xl">
             <h2 className="text-4xl font-bold text-white mb-4">Our Journey</h2>
             <p className="text-gray-300">
-              NeuroNote was born from a personal journey to find the ultimate productivity tool. Frustrated by the limitations of existing apps and the inefficiency of traditional note-taking methods, I set out to create a digital bullet journal that's easy to use and packed with all the features I needed to optimize my day.
+              NeuraNote was born from a personal journey to find the ultimate productivity tool. Frustrated by the limitations of existing apps and the inefficiency of traditional note-taking methods, I set out to create a digital bullet journal that's easy to use and packed with all the features I needed to optimize my day.
               <br /><br />
               As an avid believer in the power of AI and digital solutions, I wanted to develop a second brain for myself and others. NeuroNote is the realization of that vision, and we're excited to share it with you.
             </p>
